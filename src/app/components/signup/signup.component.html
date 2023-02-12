@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Sign Up</h1>
+          <h6>Fill the details</h6>
+        </div>
+        <form>
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >UserName</label
+              >
+              <input
+                formControlName="username"
+                type="name"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter your user name"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['username'].dirty &&
+                  signupForm.hasError('required', 'username')
+                "
+                >*UserName is required</span
+              >
+
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >FirstName</label
+                  >
+                  <input
+                    formControlName="firstname"
+                    type="name"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter your first name"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      signupForm.controls['firstname'].dirty &&
+                      signupForm.hasError('required', 'firstname')
+                    "
+                    >*FirstName is required</span
+                  >
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"
+                        >LastName</label
+                      >
+                      <input
+                        formControlName="lastname"
+                        type="name"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter your lastname"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          signupForm.controls['lastname'].dirty &&
+                          signupForm.hasError('required', 'lastname')
+                        "
+                        >*LastName is required</span
+                      >
+                      
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Mail ID</label
+                >
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your mail id"
+                />
+                <div id="info" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    signupForm.controls['email'].dirty &&
+                    signupForm.hasError('required', 'email')
+                  "
+                  >*Email Id is required</span
+                >
+              </div>
+              <br />
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Set your password"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    signupForm.controls['password'].dirty &&
+                    signupForm.hasError('required', 'password')
+                  "
+                  >*Password is required</span
+                >
+              </div>
+          </div>
+      </div>
+            </div>
+            <button
+              type="submit"
+              [disabled]="!signupForm.valid"
+              (click)="signUp()"
+              class="btn btn-primary mt-3"
+            >
+              Sign up
+            </button>
+          </form>
+        </form>
+        <a style="color: black" routerLink="/login">
+          Registered user? Click here to Login</a
+        >
+      </div>
+    </div>
+  </div>
+</div> 
